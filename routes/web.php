@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('comments/random', [\App\Http\Controllers\GreetController::class, 'random']);
+
+Route::get('comments/{message}', [\App\Http\Controllers\GreetController::class, 'greet']);
+
+Route::get('comments/freedom/{text}' ,[\App\Http\Controllers\GreetController::class, 'text']);
